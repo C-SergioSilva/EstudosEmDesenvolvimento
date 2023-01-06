@@ -1,2 +1,2 @@
 # EstudosEmDesenvolvimento
-estudando os Principois em Programaçãode Computadores
+Estudando os Principois em Programaçãod de Computadores
