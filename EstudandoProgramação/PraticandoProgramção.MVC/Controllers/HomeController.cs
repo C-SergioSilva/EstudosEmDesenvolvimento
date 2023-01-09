@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PraticandoProgramção.MVC.Entidades;
 using PraticandoProgramção.MVC.Models;
+using PraticandoProgramção.MVC.Sql_Server;
 using System.Diagnostics;
 
 namespace PraticandoProgramção.MVC.Controllers
@@ -7,6 +9,8 @@ namespace PraticandoProgramção.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        ClubesFutebol clubes = new ClubesFutebol();
+        SqlServer sql = new SqlServer(); 
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -15,7 +19,9 @@ namespace PraticandoProgramção.MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var listClubes = new List<ClubesFutebol>();
+            listClubes = sql.BuscarDados();
+            return View(listClubes);
         }
 
         public IActionResult Privacy()

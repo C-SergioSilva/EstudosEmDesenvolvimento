@@ -4,39 +4,44 @@ namespace PraticandoProgramção.MVC.Sql_Server
 {
     public class AcessoDados
     {
-        private const string ConnectionString = "server = GMS\\SQLEXPRESS; database = EstudosProgramacao;  integrated security=sspi;";
+        SqlConnection connection = new SqlConnection();
+        public AcessoDados()
+        {
+            connection.ConnectionString = "server = GMS\\SQLEXPRESS; database = EstudosProgramacao;  integrated security=sspi;";
+        }
+
         public SqlConnection AbrirConexao()
         {
-            using (var connection = new SqlConnection(ConnectionString))
+
+            try
             {
-                try
+                if (connection.State == System.Data.ConnectionState.Closed)
                 {
                     connection.Open();
                 }
-                catch (Exception ex)
-                {
-
-                    throw new Exception(ex.Message, ex);
-                }
-                return connection;
-
             }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message, ex);
+            }
+            return connection;
         }
         public SqlConnection FecharConexao()
         {
-            using (var connection = new SqlConnection(ConnectionString))
+            try
             {
-                try
+                if (connection.State == System.Data.ConnectionState.Open)
                 {
                     connection.Close();
                 }
-                catch (Exception ex)
-                {
-
-                    throw new Exception(ex.Message, ex);
-                }
-                return connection;
             }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message, ex);
+            }
+            return connection;
         }
     }
 }
