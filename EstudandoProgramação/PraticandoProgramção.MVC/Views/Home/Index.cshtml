@@ -5,7 +5,7 @@
 
 <div class="text-center">
 
-    @foreach (var item in Model)
+    @foreach (var clube in Model)
     {
         <div class="card">
 
@@ -27,23 +27,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var clube in item.Clubes)
-                    {
+                  
                         <tr>
                             <td>
-                                @Html.DisplayFor(Model => clube.NomeClube);
+                                @Html.DisplayFor(Model => clube.NomeClube)
                             </td>
 
                             <td>
-                                @Html.DisplayFor(Model => clube.QdeVitoria);
+                                @Html.DisplayFor(Model => clube.QdeVitoria)
                             </td>
 
                             <td>
-                                @Html.DisplayFor(Model => clube.Pontuacao);
+                                @Html.DisplayFor(Model => clube.Pontuacao)
                             </td>
-                        </tr>
-
-                    }
+                        </tr> 
                 </tbody>
             </table>
 

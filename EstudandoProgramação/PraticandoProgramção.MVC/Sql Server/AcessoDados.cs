@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace PraticandoProgramção.MVC.Sql_Server
+namespace PraticandoProgramção.MVC
 {
     public class AcessoDados
     {
