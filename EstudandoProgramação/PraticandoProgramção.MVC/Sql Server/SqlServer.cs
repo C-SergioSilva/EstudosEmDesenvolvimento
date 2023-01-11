@@ -27,6 +27,9 @@ namespace PraticandoProgramção.MVC.Sql_Server
                     clube.Pontuacao = Convert.ToInt32(reader["Pontuacao"].ToString());
                     clubes.Add(clube);
                 }
+                
+                clube.Clubes = clubes;
+
                 FecharConexao();
                 return clubes;
             }

@@ -1,9 +1,52 @@
-﻿@model PraticandoProgramção.MVC.Entidades.ClubesFutebol
+﻿@model IEnumerable<PraticandoProgramção.MVC.Entidades.ClubesFutebol>
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @foreach (var item in Model)
+    {
+        <div class="card">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                           Clube
+                        </th>
+
+                        <th>
+                            Quantidade de Vitórias
+                        </th>
+
+                        <th>
+                           Pontuação
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var clube in item.Clubes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(Model => clube.NomeClube);
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(Model => clube.QdeVitoria);
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(Model => clube.Pontuacao);
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    }
 </div>

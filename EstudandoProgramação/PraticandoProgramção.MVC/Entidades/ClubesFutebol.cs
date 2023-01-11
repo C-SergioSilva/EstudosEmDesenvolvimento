@@ -6,5 +6,6 @@
         public string NomeClube { get; set; } 
         public int QdeVitoria { get; set; }
         public int Pontuacao { get; set; }
+        public IList<ClubesFutebol> Clubes { get; set; }   
     }
 }
